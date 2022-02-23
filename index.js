@@ -7,8 +7,8 @@ app.get("/", (req, res) => {
 });
 
 const io = require("socket.io")(
-  app.listen(8000, () => {
-    console.log(`App started on port ${8000}`);
+  app.listen(process.env.PORT || 8000, () => {
+    console.log(`App started on port ${process.env.PORT || 8000}`);
   }),
   {
     cors: {
