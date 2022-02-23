@@ -1,0 +1,30 @@
+{
+  "name": "chatkarenge_backend",
+  "version": "1.0.0",
+  "description": "A socketio based websocket server for realtime chatting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "letschat"
+  },
+  "keywords": [
+    "socketio",
+    "websocket",
+    "chat",
+    "nodejs",
+    "backend"
+  ],
+  "author": "Govind Kumar Mishra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
