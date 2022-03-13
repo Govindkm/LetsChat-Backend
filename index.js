@@ -22,13 +22,18 @@ const users = {};
 
 io.on("connection", (socket) => {
   socket.on("new-user-joined", (name) => {
-    console.log(`${name} has joined the chat.`);
-    users[socket.id] = `${name}_${socket.id}`;
-    io.to(socket.id).emit("active-users", users);
-    socket.broadcast.emit("user-joined", {
+    if(name){
+      console.log(`${name} has joined the chat.`);
+      users[socket.id] = `${name}_${socket.id}`;
+      io.to(socket.id).emit("active-users", users);
+      socket.broadcast.emit("user-joined", {
       id: socket.id,
       name: users[socket.id],
     });
+    }
+    else{
+      socket.disconnect();
+    }
   });
 
   socket.on("message", (data) => {
@@ -54,5 +59,6 @@ io.on("connection", (socket) => {
     });
     console.log(`${users[socket.id]} disconnected`);
     delete users[socket.id];
+    socket.off
   });
 });
